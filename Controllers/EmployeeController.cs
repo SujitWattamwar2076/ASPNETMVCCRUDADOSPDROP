@@ -53,6 +53,12 @@ namespace ASPNETMVCCRUDADOSPDROP.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete()
+        {
+            repo.Delete();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Details(int id)
         {
             var emp = repo.GetEmployees().FirstOrDefault(x=>x.EmpId == id);

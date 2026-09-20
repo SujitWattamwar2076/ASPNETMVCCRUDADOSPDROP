@@ -92,6 +92,20 @@ namespace ASPNETMVCCRUDADOSPDROP.DAL
             }
         }
 
+        public void Delete()
+        {
+            using (SqlConnection con = db.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SP_DeleteEmployee", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
         public List<DepartmentModel> GetDepartments()
         {
             List<DepartmentModel> list = new List<DepartmentModel>();
